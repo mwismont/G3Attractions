@@ -1,0 +1,12 @@
+<resources>
+
+    <string name="app_name">G3Attractions</string>
+    <string name="show_detail_capability_name">show_details</string>
+    <string name="intro_message">This sample was modeled from the XYZTouristAttractions project</string>
+    <string name="empty_list">No attractions found nearby!</string>
+    <string name="nearby_attraction">Nearby tourist attraction</string>
+    <string name="action_map">Show on Map</string>
+    <string name="permission_explanation">Allow this app to use your location to show distance to attractions?</string>
+    <string name="permission_explanation_action">Let\'s do it!</string>
+
+</resources>

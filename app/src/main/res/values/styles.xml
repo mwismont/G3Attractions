@@ -1,0 +1,23 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="G3AppTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlHighlight">?colorAccent</item>
+    </style>
+
+    <style name="G3AppTheme" parent="G3AppTheme.Base" />
+
+    <style name="G3AppTheme.Detail">
+        <item name="windowActionBarOverlay">true</item>
+        <item name="actionBarStyle">@style/ActionBar.Detail</item>
+    </style>
+
+    <style name="ActionBar.Detail" parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="background">@color/transparent_actionbar_background</item>
+        <item name="displayOptions">showHome|homeAsUp</item>
+    </style>
+
+</resources>
