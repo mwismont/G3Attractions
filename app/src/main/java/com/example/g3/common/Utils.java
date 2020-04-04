@@ -20,29 +20,23 @@ import android.Manifest;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.graphics.Rect;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Display;
 
 import androidx.core.content.ContextCompat;
 
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.maps.android.SphericalUtil;
 
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.text.NumberFormat;
-import java.util.Collection;
-import java.util.HashSet;
+
 
 /**
- * This class contains shared static utility methods that both the mobile and
- * wearable apps can use.
+ * This class contains shared static utility methods
  */
 public class Utils
 {
@@ -53,6 +47,45 @@ public class Utils
     private static final String PREFERENCES_GEOFENCE_ENABLED = "geofence";
     private static final String DISTANCE_KM_POSTFIX = "km";
     private static final String DISTANCE_M_POSTFIX = "m";
+
+    /**
+     * Retrieve device information such as the manufacturer, model, and SDK.
+     *
+     * @return String
+     */
+    public static String getDeviceDiagnosticInformation()
+    {
+        String manufacturer = Build.MANUFACTURER;
+        String model = Build.MODEL;
+
+        String result = "";
+        if (model.toLowerCase().startsWith(manufacturer.toLowerCase())) {
+            result = properCaseFirstWord(model);
+        } else {
+            result = properCaseFirstWord(manufacturer) + " " + model;
+        }
+
+        result += "\n SDK Version: " +  Integer.toString(Build.VERSION.SDK_INT);
+        return result;
+    }
+
+    /**
+     * Capitalize the first letter of the first word of the string parameter.
+     *
+     * @param s to modify
+     * @return String with the first letter capitalized
+     */
+    public static String properCaseFirstWord(String s) {
+        if (s == null || s.length() == 0) {
+            return "";
+        }
+        char first = s.charAt(0);
+        if (Character.isUpperCase(first)) {
+            return s;
+        } else {
+            return Character.toUpperCase(first) + s.substring(1);
+        }
+    }
 
     /**
      * Check if the app has access to fine location permission. On pre-M
