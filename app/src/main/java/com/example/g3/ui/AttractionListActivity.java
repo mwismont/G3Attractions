@@ -17,7 +17,10 @@
 package com.example.g3.ui;
 
 import android.Manifest;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -91,8 +94,8 @@ public class AttractionListActivity extends AppCompatActivity implements
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
-            case R.id.test_item:
-                Toast.makeText(this,"Toasty!!",Toast.LENGTH_LONG).show();
+            case R.id.contact_support_item:
+                this.onContactSupportSelected();
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -110,6 +113,27 @@ public class AttractionListActivity extends AppCompatActivity implements
                     fineLocationPermissionGranted();
                 }
         }
+    }
+
+    private void onContactSupportSelected()
+    {
+        // See the following link for details
+        // https://medium.com/@cketti/android-sending-email-using-intents-3da63662c58f
+        String message = "Device Information: " + Utils.getDeviceDiagnosticInformation();
+
+       String mailto = "mailto:g3-support@gmail.com" +
+               "?subject=" + Uri.encode(getString(R.string.contact_support_email_subject))  +
+               "&body=" + Uri.encode(message);
+
+       Intent emailIntent  = new Intent(Intent.ACTION_SENDTO);
+       emailIntent.setData(Uri.parse(mailto));
+
+       try {
+            startActivity(emailIntent);
+       }
+       catch(ActivityNotFoundException e) {
+           Toast.makeText(this, getString(R.string.contact_support_email_error), Toast.LENGTH_LONG).show();
+       }
     }
 
     /**
