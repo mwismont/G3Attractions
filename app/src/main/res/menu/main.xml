@@ -21,6 +21,7 @@
 
     <!--Selection is handled by AttractionListActivity.onOptionsItemSelected -->
 
+    <!-- Added by Mike Wismont -->
     <item
         android:id="@+id/contact_support_item"
         android:orderInCategory="100"
