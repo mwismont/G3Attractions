@@ -115,6 +115,11 @@ public class AttractionListActivity extends AppCompatActivity implements
         }
     }
 
+    /**
+     * Event handler for when the Contact Support menu item is selected.
+     *
+     * @author Mike Wismont
+     */
     private void onContactSupportSelected()
     {
         // See the following link for details
