@@ -17,8 +17,11 @@
 package com.example.g3.ui;
 
 import android.Manifest;
+
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -91,18 +94,17 @@ public class AttractionListActivity extends AppCompatActivity implements
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        Intent myIntent = new Intent(Intent.ACTION_SEND);
-        myIntent.setType("text/plain");
-        String sharebody = "https://github.com/android/wear-os-samples/tree/master/XYZTouristAttractions/#readme";
-        String sharesub = "Your subject";
-        myIntent.putExtra(Intent.EXTRA_SUBJECT, sharebody);
-        myIntent.putExtra(Intent.EXTRA_TEXT, sharebody);
-        startActivity(Intent.createChooser(myIntent, "Share using"));
-        return false;
-    };
 
-
-
+        switch (item.getItemId()) {
+            case R.id.contact_support_item:
+                this.onContactSupportSelected();
+                return true;
+            case R.id.action_share:
+                this.onShareSelected();
+                return false;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     /**
      * Permissions request result callback
@@ -116,6 +118,48 @@ public class AttractionListActivity extends AppCompatActivity implements
                     fineLocationPermissionGranted();
                 }
         }
+    }
+
+    /**
+     * Event handler for when the Contact Support menu item is selected.
+     *
+     * @author Mike Wismont
+     */
+    private void onContactSupportSelected()
+    {
+        // See the following link for details
+        // https://medium.com/@cketti/android-sending-email-using-intents-3da63662c58f
+        String message = "Device Information: " + Utils.getDeviceDiagnosticInformation();
+
+       String mailto = "mailto:g3-support@gmail.com" +
+               "?subject=" + Uri.encode(getString(R.string.contact_support_email_subject))  +
+               "&body=" + Uri.encode(message);
+
+       Intent emailIntent  = new Intent(Intent.ACTION_SENDTO);
+       emailIntent.setData(Uri.parse(mailto));
+
+       try {
+            startActivity(emailIntent);
+       }
+       catch(ActivityNotFoundException e) {
+           Toast.makeText(this, getString(R.string.contact_support_email_error), Toast.LENGTH_LONG).show();
+       }
+    }
+
+    /**
+     * Event handler for when the Share menu item is selected.
+     *
+     * @author Chasten Pounds
+     */
+    private void onShareSelected()
+    {
+        Intent myIntent = new Intent(Intent.ACTION_SEND);
+        myIntent.setType("text/plain");
+        String sharebody = "https://github.com/mwismont/G3Attractions/#readme";
+        String sharesub = "Your subject";
+        myIntent.putExtra(Intent.EXTRA_SUBJECT, sharebody);
+        myIntent.putExtra(Intent.EXTRA_TEXT, sharebody);
+        startActivity(Intent.createChooser(myIntent, "Share using"));
     }
 
     /**
