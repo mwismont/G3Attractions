@@ -23,9 +23,9 @@
 
     <!--Selection is handled by AttractionListActivity.onOptionsItemSelected -->
 
-    <item android:id="@+id/test_item"
-        android:title="Test Item"
-        android:orderInCategory="100"
-        app:showAsAction="never" />
+    <item android:id="@+id/action_share"
+        android:title="Share"
+        android:icon="@drawable/ic_share_action"
+        app:showAsAction="always" />
 
 </menu>
