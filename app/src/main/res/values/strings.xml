@@ -12,4 +12,7 @@
 
     <string name="contact_support_email_subject">G3Attractions Support</string>
     <string name="contact_support_email_error">No email client available</string>
+
+    <string name="menu_profile">Profile</string>
+    <string name="activity_profile">Profile</string>
 </resources>

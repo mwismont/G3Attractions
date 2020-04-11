@@ -33,6 +33,10 @@
             android:theme="@style/G3AppTheme.Detail"
             android:parentActivityName=".ui.AttractionListActivity" />
 
+        <activity android:name=".ui.ProfileActivity"
+            android:label="@string/activity_profile"
+            android:parentActivityName=".ui.AttractionListActivity" />
+
         <receiver android:name=".service.UtilityReceiver" />
 
         <service android:name=".service.UtilityService" />

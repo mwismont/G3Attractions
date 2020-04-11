@@ -94,6 +94,9 @@ public class AttractionListActivity extends AppCompatActivity implements
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
+            case R.id.profile_item:
+                this.onViewProfileSelected();
+                return true;
             case R.id.contact_support_item:
                 this.onContactSupportSelected();
                 return true;
@@ -114,6 +117,20 @@ public class AttractionListActivity extends AppCompatActivity implements
                 }
         }
     }
+
+    /**
+     * Event handler for when the Profile menu item is selected.
+     *
+     * @author Mike Wismont
+     */
+    private void onViewProfileSelected()
+    {
+        // TODO: Add an animation?
+
+        Intent profileIntent = new Intent(AttractionListActivity.this, ProfileActivity.class);
+        this.startActivity(profileIntent);
+    }
+
 
     /**
      * Event handler for when the Contact Support menu item is selected.
