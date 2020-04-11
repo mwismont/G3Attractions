@@ -21,11 +21,19 @@
 
     <!--Selection is handled by AttractionListActivity.onOptionsItemSelected -->
 
+
     <!-- Added by Mike Wismont -->
     <item
         android:id="@+id/contact_support_item"
         android:orderInCategory="100"
         android:title="@string/menu_contact_support"
         app:showAsAction="never" />
+
+    <!-- Added by Chasten Pounds -->
+    <item android:id="@+id/action_share"
+        android:title="Share"
+        android:icon="@drawable/ic_share_action"
+        app:showAsAction="always" />
+
 
 </menu>
