@@ -17,6 +17,7 @@
 package com.example.g3.ui;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.Menu;
@@ -90,13 +91,18 @@ public class AttractionListActivity extends AppCompatActivity implements
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        switch (item.getItemId()) {
-            case R.id.test_item:
-                Toast.makeText(this,"Toasty!!",Toast.LENGTH_LONG).show();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+        Intent myIntent = new Intent(Intent.ACTION_SEND);
+        myIntent.setType("text/plain");
+        String sharebody = "https://github.com/android/wear-os-samples/tree/master/XYZTouristAttractions/#readme";
+        String sharesub = "Your subject";
+        myIntent.putExtra(Intent.EXTRA_SUBJECT, sharebody);
+        myIntent.putExtra(Intent.EXTRA_TEXT, sharebody);
+        startActivity(Intent.createChooser(myIntent, "Share using"));
+        return false;
+    };
+
+
+
 
     /**
      * Permissions request result callback
