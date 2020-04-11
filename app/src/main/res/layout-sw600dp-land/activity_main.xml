@@ -23,7 +23,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="visible"
-    tools:context=".MainActivity">
+    tools:context=".ui.AttractionListActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
@@ -33,6 +33,7 @@
 
         <fragment
             android:id="@+id/fragment_main"
+            android:name="com.example.g3.ui.AttractionListFragment"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -43,6 +44,7 @@
 
         <fragment
             android:id="@+id/fragment_detail"
+            android:name="com.example.g3.ui.DetailFragment"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
