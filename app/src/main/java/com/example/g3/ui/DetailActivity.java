@@ -68,4 +68,6 @@ public class DetailActivity extends AppCompatActivity {
                     .commit();
         }
     }
+
+
 }

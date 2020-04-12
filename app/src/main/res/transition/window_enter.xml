@@ -33,4 +33,11 @@
         </targets>
     </transition>
 
+    <transition class="com.example.g3.ui.ScaleTransition"
+        android:interpolator="@android:interpolator/overshoot">
+        <targets>
+            <target android:targetId="@id/action_share" />
+        </targets>
+    </transition>
+
 </transitionSet>

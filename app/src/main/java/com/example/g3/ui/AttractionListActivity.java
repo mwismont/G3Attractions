@@ -17,6 +17,7 @@
 package com.example.g3.ui;
 
 import android.Manifest;
+
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -93,6 +94,7 @@ public class AttractionListActivity extends AppCompatActivity implements
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+
         switch (item.getItemId()) {
             case R.id.profile_item:
                 this.onViewProfileSelected();
@@ -100,6 +102,9 @@ public class AttractionListActivity extends AppCompatActivity implements
             case R.id.contact_support_item:
                 this.onContactSupportSelected();
                 return true;
+            case R.id.action_share:
+                this.onShareSelected();
+                return false;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -127,10 +132,11 @@ public class AttractionListActivity extends AppCompatActivity implements
     {
         // TODO: Add an animation?
 
+        // TODO: automated test
+
         Intent profileIntent = new Intent(AttractionListActivity.this, ProfileActivity.class);
         this.startActivity(profileIntent);
     }
-
 
     /**
      * Event handler for when the Contact Support menu item is selected.
@@ -156,6 +162,22 @@ public class AttractionListActivity extends AppCompatActivity implements
        catch(ActivityNotFoundException e) {
            Toast.makeText(this, getString(R.string.contact_support_email_error), Toast.LENGTH_LONG).show();
        }
+    }
+
+    /**
+     * Event handler for when the Share menu item is selected.
+     *
+     * @author Chasten Pounds
+     */
+    private void onShareSelected()
+    {
+        Intent myIntent = new Intent(Intent.ACTION_SEND);
+        myIntent.setType("text/plain");
+        String sharebody = "https://github.com/mwismont/G3Attractions/#readme";
+        String sharesub = "Your subject";
+        myIntent.putExtra(Intent.EXTRA_SUBJECT, sharebody);
+        myIntent.putExtra(Intent.EXTRA_TEXT, sharebody);
+        startActivity(Intent.createChooser(myIntent, "Share using"));
     }
 
     /**

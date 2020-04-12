@@ -17,6 +17,7 @@
 package com.example.g3.ui;
 
 import android.app.TaskStackBuilder;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -28,6 +29,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.core.app.NavUtils;
 import androidx.fragment.app.Fragment;
@@ -35,9 +37,9 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.g3.R;
-import com.example.g3.model.Attraction;
 import com.example.g3.common.Constants;
 import com.example.g3.common.Utils;
+import com.example.g3.model.Attraction;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -70,7 +72,7 @@ public class DetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-        View view = inflater.inflate(R.layout.fragment_detail, container, false);
+        final View view = inflater.inflate(R.layout.fragment_detail, container, false);
         String attractionName = getArguments().getString(EXTRA_ATTRACTION);
         mAttraction = findAttraction(attractionName);
 
@@ -84,6 +86,8 @@ public class DetailFragment extends Fragment {
         TextView distanceTextView = (TextView) view.findViewById(R.id.distanceTextView);
         ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
         FloatingActionButton mapFab = (FloatingActionButton) view.findViewById(R.id.mapFab);
+        FloatingActionButton actionShare = (FloatingActionButton) view.findViewById(R.id.action_share);
+
 
         LatLng location = Utils.getLocation(getActivity());
         String distance = Utils.formatDistanceBetween(location, mAttraction.location);
@@ -103,6 +107,18 @@ public class DetailFragment extends Fragment {
                 .placeholder(R.color.lighter_gray)
                 .override(imageSize, imageSize)
                 .into(imageView);
+        actionShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String uri = (String.valueOf(mAttraction.locationUrl));
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                String ShareSub = "Check this place out!";
+                intent.putExtra(intent.EXTRA_SUBJECT, ShareSub);
+                intent.putExtra(intent.EXTRA_TEXT, uri);
+                startActivity(Intent.createChooser(intent, "Share via"));
+            }
+        });
 
         mapFab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,7 +126,13 @@ public class DetailFragment extends Fragment {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(Constants.MAPS_INTENT_URI +
                         Uri.encode(mAttraction.name + ", " + mAttraction.city)));
-                startActivity(intent);
+
+                try {
+                    startActivity(intent);
+                }
+                catch(ActivityNotFoundException e) {
+                    Toast.makeText(getActivity(), R.string.action_map_error, Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -149,6 +171,8 @@ public class DetailFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
+
+
     /**
      * Really hacky loop for finding attraction in our static content provider.
      * Obviously would not be used in a production app.
@@ -164,4 +188,10 @@ public class DetailFragment extends Fragment {
         }
         return null;
     }
+
+
+
+
+
 }
+
