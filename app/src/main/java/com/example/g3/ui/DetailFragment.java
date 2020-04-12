@@ -17,6 +17,7 @@
 package com.example.g3.ui;
 
 import android.app.TaskStackBuilder;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -28,17 +29,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.core.app.NavUtils;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.g3.R;
-import com.example.g3.model.Attraction;
 import com.example.g3.common.Constants;
 import com.example.g3.common.Utils;
+import com.example.g3.model.Attraction;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -119,26 +120,24 @@ public class DetailFragment extends Fragment {
             }
         });
 
-
-
-
         mapFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(Constants.MAPS_INTENT_URI +
                         Uri.encode(mAttraction.name + ", " + mAttraction.city)));
-                startActivity(intent);
 
+                try {
+                    startActivity(intent);
+                }
+                catch(ActivityNotFoundException e) {
+                    Toast.makeText(getActivity(), R.string.action_map_error, Toast.LENGTH_SHORT).show();
+                }
             }
-
         });
 
         return view;
-
-
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
