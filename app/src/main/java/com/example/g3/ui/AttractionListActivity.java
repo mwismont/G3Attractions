@@ -130,10 +130,6 @@ public class AttractionListActivity extends AppCompatActivity implements
      */
     private void onViewProfileSelected()
     {
-        // TODO: Add an animation?
-
-        // TODO: automated test
-
         Intent profileIntent = new Intent(AttractionListActivity.this, ProfileActivity.class);
         this.startActivity(profileIntent);
     }
