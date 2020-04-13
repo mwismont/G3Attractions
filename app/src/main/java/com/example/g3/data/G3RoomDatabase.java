@@ -3,7 +3,6 @@ package com.example.g3.data;
 import android.content.Context;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LiveData;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
@@ -14,11 +13,19 @@ import com.example.g3.model.User;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * This class is a singleton that provides access to a Room database. <br>
+ * It also exposes a pool of executors that may be used to execute queries on a background thread
+ *
+ * @author Mike Wismont
+ * @see <a href=https://codelabs.developers.google.com/codelabs/android-room-with-a-view/#0>Tutorial</a>
+ */
 @Database(entities = {User.class}, version=1, exportSchema=true)
 public abstract class G3RoomDatabase extends RoomDatabase
 {
     public abstract UserDao userDao();
 
+    private static final String DB_NAME = "g3_database";
     private static final int NUM_THREADS = 4;
     private static final RoomDatabase.Callback sRoomDatabaseCallback;
 
@@ -37,11 +44,10 @@ public abstract class G3RoomDatabase extends RoomDatabase
                 // Create the default user if it doesn't already exist
                 writeExecutor.execute(() -> {
                     UserDao dao = INSTANCE.userDao();
-                    LiveData<User> userData = dao.getDefaultUser();
+                    User user = dao.getDefaultUser();
 
-                    if (userData == null) {
-                        System.out.println("Creating default user");
-                        User user = new User();
+                    if (user == null) {
+                        user = new User();
                         user.setId(1); //default user must have ID=1
                         dao.insert(user);
                     }
@@ -54,7 +60,7 @@ public abstract class G3RoomDatabase extends RoomDatabase
         if (INSTANCE == null) {
             synchronized (G3RoomDatabase.class) {
                 if (INSTANCE == null) {
-                    RoomDatabase.Builder<G3RoomDatabase> databaseBuilder = Room.databaseBuilder(context.getApplicationContext(), G3RoomDatabase.class, "g3_database");
+                    RoomDatabase.Builder<G3RoomDatabase> databaseBuilder = Room.databaseBuilder(context.getApplicationContext(), G3RoomDatabase.class, DB_NAME);
                     databaseBuilder.addCallback(sRoomDatabaseCallback);
 
                     INSTANCE = databaseBuilder.build();
@@ -63,5 +69,4 @@ public abstract class G3RoomDatabase extends RoomDatabase
         }
         return INSTANCE;
     }
-
 }

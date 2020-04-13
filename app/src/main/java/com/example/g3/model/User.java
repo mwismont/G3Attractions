@@ -5,6 +5,11 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+/**
+ * A persistent object used to represent a User of the application
+ *
+ * @author Mike Wismont
+ */
 @Entity(tableName="user")
 public class User
 {

@@ -7,20 +7,30 @@ import androidx.lifecycle.LiveData;
 
 import com.example.g3.model.User;
 
+/**
+ * The ViewModel for the {@link  User} entity
+ *
+ * @author Mike Wismont
+ */
 public class UserViewModel extends AndroidViewModel
 {
     private UserRepository repository;
 
-    private LiveData<User> user;
+    private LiveData<User> userData;
 
     public UserViewModel(Application application)
     {
         super(application);
+        System.out.println("Constructing new user view model");
         this.repository = new UserRepository(application);
-        this.user = repository.getDefaultUser();
+        this.userData = repository.getDefaultUser();
     }
 
-    public LiveData<User> getUser() {
-        return this.user;
+    public LiveData<User> getUserData() {
+        return this.userData;
+    }
+
+    public void persist() {
+        this.repository.update(this.userData.getValue());
     }
 }
