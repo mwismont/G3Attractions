@@ -96,6 +96,9 @@ public class AttractionListActivity extends AppCompatActivity implements
         // as you specify a parent activity in AndroidManifest.xml.
 
         switch (item.getItemId()) {
+            case R.id.profile_item:
+                this.onViewProfileSelected();
+                return true;
             case R.id.contact_support_item:
                 this.onContactSupportSelected();
                 return true;
@@ -118,6 +121,17 @@ public class AttractionListActivity extends AppCompatActivity implements
                     fineLocationPermissionGranted();
                 }
         }
+    }
+
+    /**
+     * Event handler for when the Profile menu item is selected.
+     *
+     * @author Mike Wismont
+     */
+    private void onViewProfileSelected()
+    {
+        Intent profileIntent = new Intent(AttractionListActivity.this, ProfileActivity.class);
+        this.startActivity(profileIntent);
     }
 
     /**
