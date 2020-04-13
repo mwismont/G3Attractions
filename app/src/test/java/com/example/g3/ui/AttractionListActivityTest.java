@@ -10,8 +10,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
-import org.robolectric.Shadows;
 import org.robolectric.shadows.ShadowActivity;
+import org.robolectric.shadows.ShadowIntent;
+
+import static org.robolectric.Shadows.shadowOf;
 
 @RunWith(RobolectricTestRunner.class)
 public class AttractionListActivityTest
@@ -42,7 +44,7 @@ public class AttractionListActivityTest
     @Test
     public void contactSupportOpensEmail() throws Exception {
         // Get shadow
-        ShadowActivity shadowActivity = Shadows.shadowOf(activity);
+        ShadowActivity shadowActivity = shadowOf(activity);
 
         // Click menu
         shadowActivity.clickMenuItem(R.id.contact_support_item);
@@ -52,5 +54,22 @@ public class AttractionListActivityTest
 
         // Verify the intent was started with the correct action type
         Assert.assertEquals(Intent.ACTION_SENDTO.toString(), startedIntent.getAction());
+    }
+
+    @Test
+    public void viewProfileIntent() throws Exception
+    {
+        // Get shadow
+        ShadowActivity shadowActivity = shadowOf(activity);
+
+        // Click menu
+        shadowActivity.clickMenuItem(R.id.profile_item);
+
+        // Get intent
+        Intent startedIntent = shadowActivity.getNextStartedActivity();
+        ShadowIntent shadowIntent = shadowOf(startedIntent);
+
+        // Verify the profile activity was started
+        Assert.assertEquals(ProfileActivity.class, shadowIntent.getIntentClass());
     }
 }
