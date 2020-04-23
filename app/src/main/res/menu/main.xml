@@ -38,8 +38,14 @@
 
     <!-- Added by Chasten Pounds -->
     <item android:id="@+id/action_share"
-        android:title="Share"
+        android:title="@string/action_share"
         android:icon="@drawable/ic_share_action"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
+
+    <!-- Added by Chasten Pounds -->
+    <item android:id="@+id/photo_action"
+        android:title="@string/photo_action"
+        android:icon="@drawable/ic_photo_action"
+        app:showAsAction="ifRoom"/>
 
 </menu>
