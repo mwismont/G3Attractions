@@ -62,5 +62,18 @@
             app:layout_constraintBaseline_toBaselineOf="@+id/label_lname"
             app:layout_constraintStart_toEndOf="@+id/label_lname" />
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:clickable="false"
+            android:text="The profile section is meant to demonstrate usage of a local database. Notice that the values are persisted even if the application is closed."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText_lname" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
