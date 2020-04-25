@@ -23,6 +23,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -96,8 +97,8 @@ public class AttractionListActivity extends AppCompatActivity implements
         // as you specify a parent activity in AndroidManifest.xml.
 
         switch (item.getItemId()) {
-            case R.id.profile_item:
-                this.onViewProfileSelected();
+            case  R.id.photo_action:
+                this.onPhotoActionSelected();
                 return true;
             case R.id.contact_support_item:
                 this.onContactSupportSelected();
@@ -123,16 +124,19 @@ public class AttractionListActivity extends AppCompatActivity implements
         }
     }
 
-    /**
-     * Event handler for when the Profile menu item is selected.
-     *
-     * @author Mike Wismont
-     */
-    private void onViewProfileSelected()
-    {
-        Intent profileIntent = new Intent(AttractionListActivity.this, ProfileActivity.class);
-        this.startActivity(profileIntent);
+/** Event handler for when photo_action menu item is selected
+ *
+    Author: Chasten Pounds */
+    
+    private void onPhotoActionSelected()
+    {  int REQUEST_IMAGE_CAPTURE = 1;
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
     }
+
+
 
     /**
      * Event handler for when the Contact Support menu item is selected.
