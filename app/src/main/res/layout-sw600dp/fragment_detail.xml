@@ -22,7 +22,8 @@
             android:layout_height="0dp"
             android:layout_weight="50"
             android:scaleType="centerCrop"
-            android:transitionName="image" />
+            android:transitionName="image"
+            android:contentDescription="TODO" />
 
         <LinearLayout
             android:id="@+id/textLayout"
@@ -84,7 +85,8 @@
         app:layout_anchorGravity="top|start"
         app:rippleColor="@color/colorFabRipple"
         android:layout_marginStart="8dp"
-        android:clickable="true" />
+        android:clickable="true"
+        android:focusable="true" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/action_share"
@@ -95,7 +97,8 @@
         android:src="@drawable/ic_share_action"
         app:layout_anchor="@id/textLayout"
         app:layout_anchorGravity="bottom|start"
-        app:rippleColor="@color/colorFabRipple" />
+        app:rippleColor="@color/colorFabRipple"
+        android:focusable="true" />
 
     <LinearLayout
         android:id="@+id/extraControlsLayout"

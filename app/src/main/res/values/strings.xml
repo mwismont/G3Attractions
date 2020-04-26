@@ -11,10 +11,14 @@
     <string name="permission_explanation">Allow this app to use your location to show distance to attractions?</string>
     <string name="permission_explanation_action">Let\'s do it!</string>
     <string name="action_share">Share</string>
+    <string name="photo_action">Take Photo</string>
 
     <string name="menu_contact_support">Contact Support</string>
 
     <string name="contact_support_email_subject">G3Attractions Support</string>
     <string name="contact_support_email_error">No email client available</string>
+
+    <string name="menu_profile">Profile</string>
+    <string name="activity_profile">Profile</string>
 
 </resources>
