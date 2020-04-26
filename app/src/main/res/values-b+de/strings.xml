@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">G3Attractions</string>
+    <string name="show_detail_capability_name">show_details</string>
+    <string name="intro_message">Dieses Beispiel wurde aus dem XYZTouristAttractions-Projekt modelliert</string>
+    <string name="empty_list">Keine Sehenswürdigkeiten in der Nähe gefunden!</string>
+    <string name="nearby_attraction">Nahe gelegene Touristenattraktion</string>
+
+    <string name="action_map">Auf der Karte anzeigen</string>
+    <string name="action_map_error">Keine Kartenanwendung verfügbar</string>
+
+    <string name="permission_explanation">Erlauben Sie dieser App, Ihren Standort zu verwenden, um die Entfernung zu Sehenswürdigkeiten anzuzeigen?</string>
+    <string name="permission_explanation_action">Machen wir das</string>
+    <string name="action_share">Teilen</string>
+
+    <string name="menu_contact_support">Kontaktieren Sie Support</string>
+
+    <string name="contact_support_email_subject">G3Attractions Support</string>
+    <string name="contact_support_email_error">Keine E-Mail-Anwendung verfügbar</string>
+
+</resources>

@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">G3Attractions</string>
+    <string name="show_detail_capability_name">show_details</string>
+    <string name="intro_message">Mẫu này được mô hình hóa từ dự án XYZTouristAttraction</string>
+    <string name="empty_list">Không có điểm tham quan được tìm thấy gần đó!</string>
+    <string name="nearby_attraction">Điểm du lịch gần đó</string>
+
+    <string name="action_map">Hiển thị trên bản đồ</string>
+    <string name="action_map_error">Không có ứng dụng bản đồ</string>
+
+    <string name="permission_explanation">Cho phép ứng dụng này sử dụng vị trí của bạn để hiển thị khoảng cách đến các điểm tham quan?</string>
+    <string name="permission_explanation_action">Hãy làm nó!</string>
+    <string name="action_share">Chia sẻ</string>
+
+    <string name="menu_contact_support">Liên hệ hỗ trợ</string>
+
+    <string name="contact_support_email_subject">G3Attractions Ủng hộ</string>
+    <string name="contact_support_email_error">Không có ứng dụng email nào</string>
+
+</resources>
