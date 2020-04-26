@@ -24,4 +24,10 @@
     <string name="last_name">Họ</string>
     <string name="profile_disclaimer">Phần hồ sơ có nghĩa là để chứng minh việc sử dụng một cơ sở dữ liệu địa phương. Lưu ý rằng các giá trị được duy trì ngay cả khi ứng dụng bị đóng.</string>
 
+    <string name="attraction_opera_house">Nhà hát Opera Sydney</string>
+    <string name="attraction_harbour_bridge">Cầu bến cảng Sydney</string>
+    <string name="attraction_darling_harbour">Bến cảng thân yêu</string>
+    <string name="attraction_bondi_beach">bãi biển Bondi</string>
+    <string name="attraction_taronga_zoo">Sở thú Taronga</string>
+
 </resources>

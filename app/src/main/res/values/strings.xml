@@ -24,4 +24,10 @@
     <string name="last_name">Last Name</string>
     <string name="profile_disclaimer">The profile section is meant to demonstrate usage of a local database. Notice that the values are persisted even if the application is closed.</string>
 
+    <string name="attraction_opera_house">Sydney Opera House</string>
+    <string name="attraction_harbour_bridge">Sydney Harbour Bridge</string>
+    <string name="attraction_darling_harbour">Darling Harbour</string>
+    <string name="attraction_bondi_beach">Bondi Beach</string>
+    <string name="attraction_taronga_zoo">Taronga Zoo</string>
+
 </resources>

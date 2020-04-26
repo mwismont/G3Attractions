@@ -24,4 +24,10 @@
     <string name="last_name">Familienname</string>
     <string name="profile_disclaimer">Der Profilabschnitt soll die Verwendung einer lokalen Datenbank demonstrieren. Beachten Sie, dass die Werte auch dann beibehalten werden, wenn die Anwendung geschlossen wird.</string>
 
+    <string name="attraction_opera_house">Opernhaus in Sydney</string>
+    <string name="attraction_harbour_bridge">Sydney Hafenbrücke</string>
+    <string name="attraction_darling_harbour">Liebling Hafen</string>
+    <string name="attraction_bondi_beach">Bondi Beach</string>
+    <string name="attraction_taronga_zoo">Taronga Zoo</string>
+
 </resources>

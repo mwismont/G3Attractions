@@ -24,4 +24,10 @@
     <string name="last_name">Apellido</string>
     <string name="profile_disclaimer">La sección de perfil está destinada a demostrar el uso de una base de datos local. Observe que los valores persisten incluso si la aplicación está cerrada.</string>
 
+    <string name="attraction_opera_house">Sydney Opera House</string>
+    <string name="attraction_harbour_bridge">Puente de Harbour en Sidney</string>
+    <string name="attraction_darling_harbour">Puerto querido</string>
+    <string name="attraction_bondi_beach">Playa Bondi</string>
+    <string name="attraction_taronga_zoo">Taronga Zoo</string>
+
 </resources>

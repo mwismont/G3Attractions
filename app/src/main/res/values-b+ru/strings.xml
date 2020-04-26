@@ -24,4 +24,10 @@
     <string name="last_name">Фамилия</string>
     <string name="profile_disclaimer">Раздел профиля предназначен для демонстрации использования локальной базы данных. Обратите внимание, что значения сохраняются, даже если приложение закрыто.</string>
 
+    <string name="attraction_opera_house">Сиднейский оперный театр</string>
+    <string name="attraction_harbour_bridge">Сидней Харбор Бридж</string>
+    <string name="attraction_darling_harbour">Дорогая гавань</string>
+    <string name="attraction_bondi_beach">пляж Бонди</string>
+    <string name="attraction_taronga_zoo">Таронга зоопарк</string>
+
 </resources>

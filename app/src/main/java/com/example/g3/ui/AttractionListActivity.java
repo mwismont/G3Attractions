@@ -17,7 +17,6 @@
 package com.example.g3.ui;
 
 import android.Manifest;
-
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -35,6 +34,7 @@ import androidx.core.app.ActivityCompat;
 
 import com.example.g3.R;
 import com.example.g3.common.Utils;
+import com.example.g3.provider.TouristAttractions;
 import com.example.g3.service.UtilityService;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -50,6 +50,9 @@ public class AttractionListActivity extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        TouristAttractions.initAttractions(getResources());
+
         setContentView(R.layout.activity_main);
 
         if (savedInstanceState == null) {
