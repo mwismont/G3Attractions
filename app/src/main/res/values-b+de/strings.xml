@@ -11,10 +11,17 @@
     <string name="permission_explanation">Erlauben Sie dieser App, Ihren Standort zu verwenden, um die Entfernung zu Sehenswürdigkeiten anzuzeigen?</string>
     <string name="permission_explanation_action">Machen wir das</string>
     <string name="action_share">Teilen</string>
+    <string name="photo_action">Foto machen</string>
 
     <string name="menu_contact_support">Kontaktieren Sie Support</string>
 
     <string name="contact_support_email_subject">G3Attractions Support</string>
     <string name="contact_support_email_error">Keine E-Mail-Anwendung verfügbar</string>
+
+    <string name="menu_profile">Profil</string>
+    <string name="activity_profile">Profil</string>
+    <string name="first_name">Vorname</string>
+    <string name="last_name">Familienname</string>
+    <string name="profile_disclaimer">Der Profilabschnitt soll die Verwendung einer lokalen Datenbank demonstrieren. Beachten Sie, dass die Werte auch dann beibehalten werden, wenn die Anwendung geschlossen wird.</string>
 
 </resources>

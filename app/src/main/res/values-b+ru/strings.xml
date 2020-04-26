@@ -11,10 +11,17 @@
     <string name="permission_explanation">Разрешить этому приложению использовать ваше местоположение, чтобы показать расстояние до достопримечательностей?</string>
     <string name="permission_explanation_action">Давай сделаем это!</string>
     <string name="action_share">доля</string>
+    <string name="photo_action">Фотографировать</string>
 
     <string name="menu_contact_support">Контактная поддержка</string>
 
     <string name="contact_support_email_subject">G3Attractions поддержка</string>
     <string name="contact_support_email_error">Приложение электронной почты недоступно</string>
+
+    <string name="menu_profile">Профиль</string>
+    <string name="activity_profile">Профиль</string>
+    <string name="first_name">Имя</string>
+    <string name="last_name">Фамилия</string>
+    <string name="profile_disclaimer">Раздел профиля предназначен для демонстрации использования локальной базы данных. Обратите внимание, что значения сохраняются, даже если приложение закрыто.</string>
 
 </resources>

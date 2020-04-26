@@ -11,10 +11,17 @@
     <string name="permission_explanation">¿Permitir que esta aplicación use su ubicación para mostrar la distancia a las atracciones?</string>
     <string name="permission_explanation_action">¡Vamos!</string>
     <string name="action_share">Compartir</string>
+    <string name="photo_action">Tomar foto</string>
 
     <string name="menu_contact_support">Apoyo</string>
 
     <string name="contact_support_email_subject">Apoyo de G3Attractions</string>
     <string name="contact_support_email_error">No hay cliente de correo electrónico disponible</string>
+
+    <string name="menu_profile">Perfil</string>
+    <string name="activity_profile">Perfil</string>
+    <string name="first_name">Nombre de pila</string>
+    <string name="last_name">Apellido</string>
+    <string name="profile_disclaimer">La sección de perfil está destinada a demostrar el uso de una base de datos local. Observe que los valores persisten incluso si la aplicación está cerrada.</string>
 
 </resources>

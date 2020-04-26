@@ -20,5 +20,8 @@
 
     <string name="menu_profile">Profile</string>
     <string name="activity_profile">Profile</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="profile_disclaimer">The profile section is meant to demonstrate usage of a local database. Notice that the values are persisted even if the application is closed.</string>
 
 </resources>

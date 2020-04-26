@@ -11,10 +11,17 @@
     <string name="permission_explanation">Cho phép ứng dụng này sử dụng vị trí của bạn để hiển thị khoảng cách đến các điểm tham quan?</string>
     <string name="permission_explanation_action">Hãy làm nó!</string>
     <string name="action_share">Chia sẻ</string>
+    <string name="photo_action">Chụp hình</string>
 
     <string name="menu_contact_support">Liên hệ hỗ trợ</string>
 
     <string name="contact_support_email_subject">G3Attractions Ủng hộ</string>
     <string name="contact_support_email_error">Không có ứng dụng email nào</string>
+
+    <string name="menu_profile">Hồ sơ</string>
+    <string name="activity_profile">Hồ sơ</string>
+    <string name="first_name">Tên đầu tiên</string>
+    <string name="last_name">Họ</string>
+    <string name="profile_disclaimer">Phần hồ sơ có nghĩa là để chứng minh việc sử dụng một cơ sở dữ liệu địa phương. Lưu ý rằng các giá trị được duy trì ngay cả khi ứng dụng bị đóng.</string>
 
 </resources>
