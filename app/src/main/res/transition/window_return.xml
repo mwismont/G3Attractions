@@ -40,7 +40,8 @@
             <target android:targetClass="android.widget.LinearLayout" />
             <target android:targetClass="android.widget.ImageView" />
             <target android:excludeId="@id/mapFab" />
-            <target android:excludeId="@id/action_share"/>
+            <target android:excludeId="@id/action_share" />
+            <target android:excludeId="@id/action_rate"/>
         </targets>
     </explode>
 
