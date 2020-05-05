@@ -26,6 +26,7 @@ import com.google.android.gms.maps.model.LatLng;
  */
 public class Attraction
 {
+    public int id;
     public String name;
     public String description;
     public String longDescription;
@@ -35,14 +36,17 @@ public class Attraction
     public LatLng location;
     public String city;
 
+    private Rating rating;
+
     public Bitmap image;
     public Bitmap secondaryImage;
     public String distance;
 
     public Attraction() {}
 
-    public Attraction(String name, String description, String longDescription, Uri imageUrl,
+    public Attraction(int id, String name, String description, String longDescription, Uri imageUrl,
                       Uri secondaryImageUrl, Uri locationUrl, LatLng location, String city) {
+        this.id =  id;
         this.name = name;
         this.description = description;
         this.longDescription = longDescription;
@@ -51,5 +55,19 @@ public class Attraction
         this.locationUrl = locationUrl;
         this.location = location;
         this.city = city;
+    }
+
+    public Integer getRatingValue() {
+        return rating != null ? rating.getValue() : null;
+    }
+
+    public Rating getRating()
+    {
+        return rating;
+    }
+
+    public void setRating(Rating rating)
+    {
+        this.rating = rating;
     }
 }

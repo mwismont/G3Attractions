@@ -8,6 +8,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.example.g3.model.Rating;
 import com.example.g3.model.User;
 
 import java.util.concurrent.ExecutorService;
@@ -17,13 +18,17 @@ import java.util.concurrent.Executors;
  * This class is a singleton that provides access to a Room database. <br>
  * It also exposes a pool of executors that may be used to execute queries on a background thread
  *
+ * Version 1: User table created
+ * Version 2: Rating table created
+ *
  * @author Mike Wismont
  * @see <a href=https://codelabs.developers.google.com/codelabs/android-room-with-a-view/#0>Tutorial</a>
  */
-@Database(entities = {User.class}, version=1, exportSchema=true)
+@Database(entities = {User.class, Rating.class}, version=2, exportSchema=true)
 public abstract class G3RoomDatabase extends RoomDatabase
 {
     public abstract UserDao userDao();
+    public abstract RatingDao ratingDao();
 
     private static final String DB_NAME = "g3_database";
     private static final int NUM_THREADS = 4;
@@ -61,6 +66,7 @@ public abstract class G3RoomDatabase extends RoomDatabase
             synchronized (G3RoomDatabase.class) {
                 if (INSTANCE == null) {
                     RoomDatabase.Builder<G3RoomDatabase> databaseBuilder = Room.databaseBuilder(context.getApplicationContext(), G3RoomDatabase.class, DB_NAME);
+                    databaseBuilder.fallbackToDestructiveMigration();
                     databaseBuilder.addCallback(sRoomDatabaseCallback);
 
                     INSTANCE = databaseBuilder.build();
