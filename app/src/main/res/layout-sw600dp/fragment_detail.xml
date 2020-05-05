@@ -59,19 +59,19 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="50"
+            android:clipToPadding="false"
             android:paddingTop="@dimen/standard_margin"
             android:paddingBottom="@dimen/standard_margin"
-            android:scrollbarStyle="outsideOverlay"
-            android:clipToPadding="false">
+            android:scrollbarStyle="outsideOverlay">
 
             <TextView
                 android:id="@+id/descriptionTextView"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:textIsSelectable="true"
                 style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:paddingStart="@dimen/keyline2"
-                android:paddingEnd="@dimen/keyline3" />
+                android:paddingEnd="@dimen/keyline3"
+                android:textIsSelectable="true" />
         </ScrollView>
 
     </LinearLayout>
@@ -114,12 +114,14 @@
         app:layout_anchor="@+id/descriptionScrollView"
         app:layout_anchorGravity="bottom">
 
-        <RadioGroup
-            android:id="@+id/RatingRadioButtons"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="10"
-            android:background="?colorPrimary"/>
+        <!-- RatingBar added by Michael Wismont -->
+        <RatingBar
+            android:id="@+id/attractionRatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:numStars="5"
+            android:stepSize="1.0" />
 
     </LinearLayout>
 
