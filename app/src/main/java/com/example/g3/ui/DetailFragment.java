@@ -150,6 +150,10 @@ public class DetailFragment extends Fragment implements RatingDialogFragment.Rat
 
         ratingData.observe(getViewLifecycleOwner(), rating -> {
             this.mAttraction.setRating(ratingData.getValue());
+
+            if (ratingBar != null && this.mAttraction.getRatingValue() != null) {
+                ratingBar.setRating(this.mAttraction.getRatingValue());
+            }
         });
 
         //The bar only exists as a child of this fragment on tablets
