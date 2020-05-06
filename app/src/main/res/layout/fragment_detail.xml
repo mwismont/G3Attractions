@@ -115,11 +115,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:clickable="true"
-        android:src="@drawable/ic_share_action"
+        android:src="@drawable/ic_rate_action"
         app:layout_anchor="@id/textLayout"
         app:layout_anchorGravity="top|end"
         app:rippleColor="@color/colorFabRipple" />
-
-    <!-- TODO: add a new drawable resource for the rate button -->
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
