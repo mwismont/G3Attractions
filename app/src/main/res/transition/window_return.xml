@@ -33,6 +33,14 @@
         </targets>
     </transition>
 
+    <transition class="com.example.g3.ui.ScaleTransition"
+        android:interpolator="@android:interpolator/fast_out_linear_in"
+        android:duration="@android:integer/config_shortAnimTime">
+        <targets>
+            <target android:targetId="@id/action_rate" />
+        </targets>
+    </transition>
+
     <explode>
         <targets>
             <target android:targetClass="android.widget.TextView" />
