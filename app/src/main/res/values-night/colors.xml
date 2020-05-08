@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#33FF8D</color>
+    <color name="colorPrimaryDark">#00B274</color>
+    <color name="colorAccent">#33FF8D</color>
+    <color name="colorFabRipple">#CFD5D3</color>
+
+    <color name="text_background">#CFD5D3</color>
+    <color name="transparent_actionbar_background">#33FF8D</color>
+    <color name="lighter_gray">#CFD5D3</color>
+</resources>
