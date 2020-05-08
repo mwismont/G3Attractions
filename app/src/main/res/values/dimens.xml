@@ -20,6 +20,7 @@
     <dimen name="standard_margin">16dp</dimen>
     <dimen name="small_margin">8dp</dimen>
     <dimen name="tiny_margin">4dp</dimen>
+    <dimen name="card_size">350dp</dimen>
     <dimen name="image_size">120dp</dimen>
     <dimen name="fab_margin">-8dp</dimen>
     <item type="dimen" name="keyline1">@dimen/standard_margin</item>
