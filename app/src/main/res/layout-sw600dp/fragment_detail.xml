@@ -44,6 +44,7 @@
                 android:maxLines="2"
                 android:ellipsize="end"
                 android:textIsSelectable="true"
+                android:textColor="#FFFFFF"
                 style="@style/TextAppearance.AppCompat.Title.Inverse" />
 
             <TextView
